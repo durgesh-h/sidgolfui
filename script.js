@@ -114,3 +114,8 @@ gsap.from("#page4 h1",{
         
     }
 })
+
+
+function toggleMenu() {
+    document.getElementById('nav').classList.toggle('nav-open');
+}

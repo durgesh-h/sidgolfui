@@ -32,32 +32,93 @@ html,body{
 
 }
 
-#nav{
-    height: 150px;
+#nav {
+    height: 80px;
     width: 100%;
-    /* background-color: red; */
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 50px;
-    padding: 0 150px;
+    justify-content: space-between;
+    padding: 0 20px;
     position: fixed;
     z-index: 99;
+    /* background-color: rgba(0, 0, 0, 0.8); */
 }
 
-#nav img{
-    height: 75px ;
-
+#nav img {
+    height: 50px;
 }
-#nav h4{
+
+#nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+#nav-links h4 {
     text-transform: uppercase;
     font-weight: 500;
+    font-size: 1rem;
+}
 
+#hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+#hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    #nav {
+        padding: 0 20px;
+    }
+
+    #nav-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+
+    #nav-links h4 {
+        padding: 15px 0;
+        font-size: 1.2rem;
+    }
+
+    #hamburger {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    #nav-links h4 {
+        font-size: 1rem;
+    }
+
+    #hamburger span {
+        width: 20px;
+    }
+}
+
+.nav-open #nav-links {
+    height: 200px; /* Adjust based on the number of links */
 }
 
 video{
     height: 100%;
-    width: 100%;
+    width:100%;
     object-fit: cover;
     position: fixed;
     z-index: -1;
@@ -66,7 +127,8 @@ video{
 
 #main{
 position: relative;
-background-color: rgba(0,0,0,0.37);
+background-color: rgba(0, 0, 0, 0.37);
+width: 100%;
 }
 
 #page1{
@@ -240,17 +302,20 @@ background-color: rgba(0,0,0,0.37);
 }
 
 #about-us-in{
-    width: 60%;
-    text-align: center;
+    width: 80%;
+   text-align: center;
+   
 }
 
 #about-us-in h3{
-    font-size: 50px;
+   
+    font-size: 2rem;
     font-weight: 800;
     margin-bottom: 40px;
 }
 
 #about-us-in p{
+    /* text-align: justify; */
     font-size: 18px;
     line-height:26px ;
 }
@@ -361,7 +426,7 @@ background-color: rgba(0,0,0,0.37);
 
 #page3 img{
     position: absolute;
-    height: 60px;
+    height: 10vh;
 }
 
 #page3 #colon1{
@@ -400,7 +465,7 @@ background-color: rgba(0,0,0,0.37);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 2rem;
     color: #000;
     font-weight: 800;
     position: absolute;
@@ -418,11 +483,15 @@ background-color: rgba(0,0,0,0.37);
     background-color: transparent;
 
 }
+.elem:hover p{
+    color: black;
+    background-color: transparent;
+}
 .elem:hover img{
     scale: 1;
 }
 #page4 h1{
-    font-size: 70px;
+    font-size: 5rem;
     position: absolute;
     top: -6%;
     font-weight: 900;
@@ -435,14 +504,16 @@ background-color: rgba(0,0,0,0.37);
 
 #footer{
     background: linear-gradient(to left bottom, #27A535, #95C11E);
-    height: 40vh;
+    height: 100%;
     width: 100%;
     position: relative;
+   
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 150px;
-    padding: 0 100px;
+    align-items:center;
+    justify-content:space-between;
+    gap: 2vh;
+    padding: 6vh 6vh;
+
 
 }
 
@@ -454,18 +525,18 @@ background-color: rgba(0,0,0,0.37);
 
 }
 #f1 img{
-    height: 100px;
+    height: 14vh;
 
 }
 #f1,#f2, #f3, #f4{
-    width: fit-content;
+    
     position: relative;
     z-index: 2;
 
 }
 
 #f2 h3{
-    font-size: 20px;
+    font-size: 1rem;
     white-space: nowrap;
     color: #000;
     font-weight: 900;
@@ -474,19 +545,505 @@ background-color: rgba(0,0,0,0.37);
 }
 
 #f3 h3{
-    font-size: 20px;
+   
+    font-size: 1rem;
     white-space: nowrap;
     color: #000;
-    font-weight: 800;
+    font-weight: 900;
     margin-bottom: 8px;
 
 }
 
-#f4 h3{
-    font-size: 12px;
+#f4 h4{
+    font-size: 1rem;
     white-space: nowrap;
     color: #000;
     font-weight: 600;
     margin-bottom: 8px;
     line-height: 20px;
+}
+.dev{
+    font-size: 0.8rem;
+     text-align: center;
+}
+
+/* For extra small devices (phones, <576px) */
+@media only screen and (max-width: 576px) {
+    #nav {
+        padding: 0 20px;
+        justify-content: space-between;
+        gap: 1vh;
+    }
+    #nav img {
+        height: 50px;
+    }
+    #page1 h1 {
+        font-size: 3rem;
+    }
+    #page1 h2 {
+        font-size: 2rem;
+    }
+    #page1 p {
+        width: 80%;
+        font-size: 1rem;
+    }
+    #scroller h4 {
+        font-size: 50px;
+    }
+    #about-us {
+        flex-direction: column;
+        height: auto;
+        padding:0vh;
+        
+        
+    }
+    #about-us img {
+        height: 30vh;
+        width: 40vh;
+    }
+    #about-us-in{
+        padding:2vh;
+    }
+    #about-us-in h3 {
+        font-size: 30px;
+        
+    }
+    #cards-container {
+        flex-direction: column;
+        gap: 2vh;
+        margin: 2vh;
+    }
+    .cards {
+        width: 100%;
+    }
+    .overlay{
+        height: 100%;
+        width: 100%;
+        background-color: #95C11E;
+        padding: 10px;
+        opacity: 0;
+        transition: all ease 0.6s;
+    }
+    .overlay h4{
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: 800;
+        white-space: nowrap;
+        margin-bottom:20px ;
+    }
+    .overlay p{
+        color: #000;
+        font-size: 1rem;
+    }
+    #page3 p {
+        font-size: 1rem;
+        width: 90%;
+    }
+    #green-div{
+        margin-top: 4vh;
+    }
+    #green-div h4{
+        font-size: 1rem;
+        width: 90%;
+    }
+    #page3 img{
+       
+        height: 4vh;
+    }
+    #page3 #colon1{
+        display: none;
+        left: 10%;
+        top: 30%;
+
+    }
+    
+    #colon2{
+        display: none;
+        right: 10%;
+        bottom: 30%;
+    }
+    #page3 #colon3{
+        
+        left: 10%;
+        top: 30%;
+
+    }
+    
+    #colon4{
+        
+        right: 10%;
+        bottom: 30%;
+    }
+
+    #page4{
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4vh;
+        position: relative;
+        margin-bottom: 4vh;
+    }
+    #page4 h1{
+        font-size: 3rem;
+        top: -20%;
+        text-align: center;
+    }
+    .elem{
+        height: 30%;
+        width: 80%;
+        overflow: hidden;
+        border-radius: 20px;
+        position: relative;
+    }
+    .elem h2{
+        padding: 1vh;
+    }
+    #footer {
+        flex-direction: column;
+        padding: 20px;
+      align-items: start;
+    }
+    #footer>img{
+        position: relative;
+    z-index: 0;
+    
+    }
+    #f1 img{
+        height: 15vh;
+        position:absolute;
+         margin-top: -25vh;
+        
+    }
+
+    #page1 #arrow{
+        height: 200px;
+        width: 200px;
+        background-color: transparent;
+        position: absolute;
+        display: flex;
+        border: 2px solid #95C11E;
+        left: -2%;
+        bottom: 0%;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all ease 0.5s;
+    
+    }
+    
+    #page1 #arrow:hover{
+        scale: 0.5;
+        background-color: #95C11E;
+    }
+    
+    #page1 #arrow i{
+        font-size: 40px;
+        font-weight: 100;
+    }
+    
+}
+
+
+/* For small devices (tablets, 576px to 768px) */
+@media only screen and (min-width: 576px) and (max-width: 768px){
+    #nav {
+        padding: 0 20px;
+        justify-content: space-between;
+        gap: 1vh;
+    }
+    #nav img {
+        height: 50px;
+    }
+    #page1 h1 {
+        font-size: 3rem;
+    }
+    #page1 h2 {
+        font-size: 2rem;
+    }
+    #page1 p {
+        width: 80%;
+        font-size: 1rem;
+    }
+    #scroller h4 {
+        font-size: 50px;
+    }
+    #about-us {
+        flex-direction: column;
+        height: auto;
+        padding:0vh;
+        
+        
+    }
+    #about-us img {
+        height: 30vh;
+        width: 40vh;
+    }
+    #about-us-in{
+        padding:2vh;
+    }
+    #about-us-in h3 {
+        font-size: 30px;
+        
+    }
+    #cards-container {
+        flex-direction: column;
+        gap: 2vh;
+        margin: 2vh;
+    }
+    .cards {
+        width: 100%;
+    }
+    .overlay{
+        height: 100%;
+        width: 100%;
+        background-color: #95C11E;
+        padding: 10px;
+        opacity: 0;
+        transition: all ease 0.6s;
+    }
+    .overlay h4{
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: 800;
+        white-space: nowrap;
+        margin-bottom:20px ;
+    }
+    .overlay p{
+        color: #000;
+        font-size: 1rem;
+    }
+    #page3 p {
+        font-size: 1rem;
+        width: 90%;
+    }
+    #green-div{
+        margin-top: 4vh;
+    }
+    #green-div h4{
+        font-size: 1rem;
+        width: 90%;
+    }
+    #page3 img{
+       
+        height: 4vh;
+    }
+    #page3 #colon1{
+        left: 10%;
+        top: 30%;
+    }
+    
+    #colon2{
+        right: 10%;
+        bottom: 30%;
+    }
+    #page3 #colon3{
+        display: none;
+        
+
+    }
+    
+    #colon4{
+        display: none;
+
+    }
+    #page4{
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4vh;
+        position: relative;
+        margin-bottom: 4vh;
+    }
+    #page4 h1{
+        font-size: 3rem;
+        top: -20%;
+        text-align: center;
+    }
+    .elem{
+        height: 30%;
+        width: 80%;
+        overflow: hidden;
+        border-radius: 20px;
+        position: relative;
+    }
+    .elem h2{
+        padding: 1vh;
+    }
+    #footer {
+        flex-direction: column;
+        padding: 20px;
+      align-items: start;
+    }
+    #footer>img{
+        position: relative;
+    z-index: 0;
+    
+    }
+    #f1 img{
+        height: 15vh;
+        position:absolute;
+         margin-top: -25vh;
+        
+    }
+
+    
+}
+
+/* For medium devices (desktops, 768px to 1024px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    #nav {
+        padding: 0 60px;
+        gap: 30px;
+    }
+    #nav img {
+        height: 70px;
+    }
+    #page1 h1 {
+        font-size: 80px;
+    }
+    #page1 h2 {
+        font-size: 28px;
+    }
+    #page1 p {
+        width: 50%;
+        font-size: 18px;
+    }
+    #scroller h4 {
+        font-size: 90px;
+    }
+    #about-us {
+        flex-direction: column;
+        height: auto;
+    }
+    #about-us img {
+        height: 200px;
+        width: 200px;
+    }
+    #about-us-in h3 {
+        font-size: 45px;
+    }
+    #cards-container {
+        flex-direction: column;
+        gap: 2vh;
+        margin: 2vh;
+    }
+    .cards {
+        width: 100%;
+    }
+    #page3 #colon3{
+        display: none;
+        
+
+    }
+    
+    #colon4{
+        display: none;
+
+    }
+    .overlay{
+        height: 100%;
+        width: 100%;
+        background-color: #95C11E;
+        padding: 10px;
+        opacity: 0;
+        transition: all ease 0.6s;
+    }
+    .overlay h4{
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: 800;
+        white-space: nowrap;
+        margin-bottom:20px ;
+    }
+    .overlay p{
+        color: #000;
+        font-size: 1rem;
+    }
+  
+    #page3 p {
+        font-size: 30px;
+        width: 70%;
+    }
+    .elem h2{
+        font-size: 1rem;
+    }
+    #page4 h1{
+        font-size: 3rem;
+        top: -20%;
+        text-align: center;
+    }
+    #footer {
+        padding: 40px 60px;
+        height: 40vh;
+    }
+}
+
+/* For large devices (desktops, 1024px and above) */
+@media only screen and (min-width: 1024px) {
+    #nav {
+        padding: 0 150px;
+        gap: 50px;
+    }
+    #page1 h1 {
+        font-size: 100px;
+    }
+    #page1 h2 {
+        font-size: 30px;
+    }
+    #page1 p {
+        width: 40%;
+        font-size: 20px;
+    }
+    #scroller h4 {
+        font-size: 120px;
+    }
+    #about-us {
+        flex-direction: row;
+    }
+    #about-us img {
+        height: 220px;
+        width: 220px;
+    }
+    #about-us-in h3 {
+        font-size: 50px;
+    }
+    #cards-container {
+        flex-direction: row;
+        gap: 70px;
+    }
+    .cards {
+        width: 24%;
+    }
+    #page3 p {
+        font-size: 35px;
+        width: 60%;
+    }
+    .elem h2{
+        font-size: 2rem;
+    }
+    #page3 #colon3{
+        display: none;
+        
+
+    }
+    
+    #colon4{
+        display: none;
+
+    }
+    #page4 h1{
+        font-size: 5rem;
+        top: -20%;
+        text-align: center;
+    }
+    #footer {
+        padding: 0 100px;
+        height: 40vh;
+    }
 }
